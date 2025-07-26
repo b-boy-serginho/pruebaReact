@@ -1,4 +1,4 @@
 import api from "./axios";
 
-export const getAllClient = () => api.get('api/cliente');
-export const getClientById = (id) => api.get('api/cliente/${id}');
+export const getAllClient = () => api.get('api/cliente/');
+export const getClientById = (id) => api.get('cliente/${id}');

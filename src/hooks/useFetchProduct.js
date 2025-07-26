@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {getAllProduct} from '../api/product';
 
-export const useFetchClient = () => {
+export const useFetchProduct = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
 
