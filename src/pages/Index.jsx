@@ -1,6 +1,7 @@
 // src/pages/Index.jsx
 import mockup from '../assets/img3.avif';
 import Footer from '../components/Footer.jsx';
+// import ProductsList  from "../features/product/ProductList.jsx";
 
 export function Index() {
   return (
@@ -25,7 +26,7 @@ export function Index() {
                 className="flex-grow px-4 py-2 text-black focus:outline-none"
               />
               <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 text-white font-semibold">
-                Ingresar
+                Buscar
               </button>
             </div>
             {/* <p className="text-xs mt-2">No se requiere tarjeta de crédito.</p> */}
@@ -91,6 +92,7 @@ export function Index() {
         </div>
       </section>
 
+    {/* <ProductsList/> */}
       <Footer />
 
     </>

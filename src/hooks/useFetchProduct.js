@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {getAllProduct} from '../api/product';
 
 export const useFetchProduct = () => {
-    const [product, setProduct] = useState([]);
+    const [productList, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -12,5 +12,5 @@ export const useFetchProduct = () => {
         .finally(() => setLoading(false));
     }, []);
 
-    return {product, loading};
+    return {productList, loading};
 }

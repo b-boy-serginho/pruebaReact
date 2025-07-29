@@ -37,7 +37,7 @@ export default function FuncionesDropdown({ isOpen, onNavigate }) {
       </div>
       <div className="text-center mt-6">
         <button
-          onClick={() => onNavigate('products')}
+          // onClick={() => onNavigate('products')}
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded"
         >
           Ver todas las funciones →

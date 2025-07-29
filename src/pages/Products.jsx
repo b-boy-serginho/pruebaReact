@@ -1,36 +1,24 @@
 // src/pages/Products.jsx
 import React from 'react';
-
-const productos = [
-  {
-    nombre: 'Botellon 20 lts',
-    descripcion: 'Agua purificada en botellón ideal para hogares y oficinas.',
-    imagen: 'https://i.imgur.com/T1NTAd6.png', // Reemplaza por tu ruta local si tienes la imagen
-  },
-  {
-    nombre: 'Paquete personal de tapita',
-    descripcion: 'Paquete con botellas personales, perfectas para llevar.',
-    imagen: 'https://i.imgur.com/xI1KHGo.png',
-  },
-  {
-    nombre: 'Paquete personal de pico',
-    descripcion: 'Botellas con pico ideales para deporte o actividades al aire libre.',
-    imagen: 'https://i.imgur.com/cTfwnOG.png',
-  },
-];
+import { useFetchProduct } from '../hooks/useFetchProduct';
 
 export default function Products() {
+  const {productList, loading} = useFetchProduct();
+
+  console.log("Lista de productos", productList)
+  if(loading) return <p> Cargando los productos...</p>;
+
   return (
     <div className="min-h-screen bg-white py-10 px-4 md:px-20">
       <h2 className="text-3xl font-bold text-gray-800 mb-1">Nuestros Productos</h2>
       <p className="text-gray-500 mb-8 italic">El agua es vida</p>
 
       <div className="space-y-6">
-        {productos.map((producto, idx) => (
+        {productList.map((producto, id) => (
           <div
-            key={idx}
-            className="flex flex-col md:flex-row items-center bg-white border border-gray-200 rounded shadow-sm overflow-hidden"
-          >
+            key={id}
+            className="flex flex-col md:flex-row items-center bg-gray-200 border border-gray-200 rounded shadow-sm overflow-hidden"
+           >
             <img
               src={producto.imagen}
               alt={producto.nombre}
@@ -39,7 +27,7 @@ export default function Products() {
             <div className="flex-1 px-6 py-4 text-left">
               <h3 className="text-xl font-semibold text-gray-800">{producto.nombre}</h3>
               <p className="text-gray-600 text-sm mt-1">{producto.descripcion}</p>
-              <button className="mt-4 px-4 py-2 border border-gray-400 rounded hover:bg-gray-100 text-sm">
+              <button className="mt-4 px-4 py-2 border border-gray-700 rounded hover:bg-yellow-400 text-sm bg-blue-900 text-white">
                 Agregar al carrito
               </button>
             </div>
@@ -63,3 +51,23 @@ export default function Products() {
     </div>
   );
 }
+
+
+// {productos.map((producto, idx) => (
+const productos = [
+  {
+    nombre: 'Botellon 20 lts',
+    descripcion: 'Agua purificada en botellón ideal para hogares y oficinas.',
+    imagen: 'https://i.imgur.com/T1NTAd6.png', // Reemplaza por tu ruta local si tienes la imagen
+  },
+  {
+    nombre: 'Paquete personal de tapita',
+    descripcion: 'Paquete con botellas personales, perfectas para llevar.',
+    imagen: 'https://i.imgur.com/xI1KHGo.png',
+  },
+  {
+    nombre: 'Paquete personal de pico',
+    descripcion: 'Botellas con pico ideales para deporte o actividades al aire libre.',
+    imagen: 'https://i.imgur.com/cTfwnOG.png',
+  },
+];
